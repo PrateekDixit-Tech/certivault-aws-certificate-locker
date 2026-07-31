@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Upload Certificate — CertiVault</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="bg-blobs"><span class="b1"></span><span class="b2"></span><span class="b3"></span></div>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <a href="index.html" class="brand"><span class="brand-icon"><i class="fa-solid fa-shield-halved"></i></span>CertiVault</a>
+    <nav class="side-links">
+      <a href="dashboard.html"><i class="fa-solid fa-chart-line"></i> Dashboard</a>
+      <a href="upload.html" class="active"><i class="fa-solid fa-cloud-arrow-up"></i> Upload</a>
+      <a href="gallery.html"><i class="fa-solid fa-images"></i> Gallery</a>
+      <a href="profile.html"><i class="fa-solid fa-user"></i> Profile</a>
+      <a href="about.html"><i class="fa-solid fa-circle-info"></i> About Project</a>
+      <a href="index.html"><i class="fa-solid fa-right-from-bracket"></i> Log Out</a>
+    </nav>
+    <div class="sidebar-foot">
+      <div class="avatar">SK</div>
+      <div><div class="name">Shershah</div><div class="role">ECE Student</div></div>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <div class="topbar">
+      <div>
+        <h1>Upload Certificate</h1>
+        <p>Add a new certificate to your secure cloud vault.</p>
+      </div>
+    </div>
+
+    <div class="glass panel" style="max-width:760px;">
+      <div class="upload-zone" id="upload-zone">
+        <i class="fa-solid fa-cloud-arrow-up"></i>
+        <h4>Click to browse or drag &amp; drop</h4>
+        <p>PDF, JPG or PNG — up to 5 MB</p>
+        <input type="file" id="file-input" accept=".pdf,.jpg,.jpeg,.png">
+      </div>
+      <div class="file-chip" id="file-chip"><i class="fa-solid fa-file-circle-check"></i> <span id="file-chip-name"></span></div>
+
+      <form id="upload-form">
+        <div class="form-grid">
+          <div class="field full">
+            <label for="cert-name">Certificate Name</label>
+            <div class="input-wrap no-icon"><input type="text" id="cert-name" placeholder="e.g. AWS Cloud Practitioner" required></div>
+          </div>
+          <div class="field">
+            <label for="cert-category">Category</label>
+            <div class="input-wrap no-icon">
+              <select id="cert-category">
+                <option value="Internship">Internship</option>
+                <option value="Academic">Academic</option>
+                <option value="Achievement">Achievement</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="cert-date">Date Issued</label>
+            <div class="input-wrap no-icon"><input type="date" id="cert-date"></div>
+          </div>
+          <div class="field full">
+            <label for="cert-desc">Description (optional)</label>
+            <div class="input-wrap no-icon"><textarea id="cert-desc" rows="3" placeholder="Short note about this certificate..."></textarea></div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin-top:8px;"><i class="fa-solid fa-cloud-arrow-up"></i> Upload to Vault</button>
+      </form>
+
+      <div class="alert-success" id="upload-success">
+        <i class="fa-solid fa-circle-check"></i> Certificate uploaded successfully!
+      </div>
+    </div>
+
+    <div class="demo-note" style="max-width:760px;margin-top:22px;">
+      <i class="fa-solid fa-circle-info"></i> <b>What's real vs. simulated:</b> This form saves your entry to the browser (demo storage) so the dashboard and gallery update instantly. In the deployed AWS version, this same form uploads the file directly to a private S3 bucket using a pre-signed URL, and the metadata is written to the app's database.
+    </div>
+  </main>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

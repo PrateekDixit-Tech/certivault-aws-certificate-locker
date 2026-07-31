@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About the Project — CertiVault</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="bg-blobs"><span class="b1"></span><span class="b2"></span><span class="b3"></span></div>
+
+<nav class="navbar">
+  <a href="index.html" class="brand"><span class="brand-icon"><i class="fa-solid fa-shield-halved"></i></span>CertiVault</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About Project</a></li>
+    <li><a href="dashboard.html">Dashboard</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a href="login.html" class="btn btn-primary"><i class="fa-solid fa-arrow-right-to-bracket"></i> Try Demo</a>
+  </div>
+  <button class="nav-toggle"><i class="fa-solid fa-bars"></i></button>
+</nav>
+
+<section class="section" style="max-width:900px;margin:0 auto;">
+  <div class="section-head">
+    <div class="pill"><i class="fa-solid fa-file-lines"></i> Project Report</div>
+    <h2>About CertiVault</h2>
+    <p>CertiVault — Secure Cloud Certificate Locker using AWS S3 &amp; IAM. An IBM Cloud Computing internship project.</p>
+  </div>
+
+  <div class="about-block">
+    <h3><i class="fa-solid fa-bullseye"></i> Purpose</h3>
+    <p>Students and professionals collect certificates from internships, courses, and colleges throughout their careers, but usually store them scattered across email attachments, phone galleries, and random folders. CertiVault gives every certificate a single, organized, cloud-secured home that can be searched, filtered, and accessed from anywhere.</p>
+  </div>
+
+  <div class="about-block">
+    <h3><i class="fa-solid fa-triangle-exclamation"></i> Problem</h3>
+    <p>Certificates are frequently lost, misplaced, or hard to find when needed most — for job applications, higher-education admissions, or verification requests. There is no lightweight, purpose-built tool for managing just certificates the way there is for photos or documents in general.</p>
+  </div>
+
+  <div class="about-block">
+    <h3><i class="fa-solid fa-lightbulb"></i> Solution</h3>
+    <p>CertiVault provides a dashboard, upload flow, searchable gallery, and profile view — all backed conceptually by Amazon S3 for storage and AWS IAM for access control. Certificates are tagged by category (Internship, Academic, Achievement) so they're easy to browse and retrieve.</p>
+  </div>
+
+  <div class="about-block">
+    <h3><i class="fa-solid fa-code-branch"></i> What's real vs. what's simulated</h3>
+    <p>Being transparent about this matters more than pretending everything is fully wired up. Here's exactly what's demonstrated versus simulated in this build:</p>
+    <table class="mini-table">
+      <tr><th>Part</th><th>Status</th><th>Explanation</th></tr>
+      <tr><td>UI / Dashboard / Gallery</td><td>Real</td><td>Fully working HTML, CSS, and JavaScript — no placeholders.</td></tr>
+      <tr><td>Upload / Delete / Search / Filter</td><td>Simulated storage</td><td>Uses the browser's local storage to mimic a database so the demo works instantly, without needing a live backend server.</td></tr>
+      <tr><td>Login</td><td>Simulated</td><td>Any email/password logs in — real deployments would use AWS Cognito or IAM-based authentication.</td></tr>
+      <tr><td>AWS S3 storage concept</td><td>Explained, not live</td><td>The architecture below shows exactly how S3 would store the files in a production deployment.</td></tr>
+      <tr><td>AWS IAM security concept</td><td>Explained, not live</td><td>Policies shown below are real, valid IAM JSON — they aren't attached to a live AWS account for this student demo.</td></tr>
+    </table>
+  </div>
+
+  <div class="about-block">
+    <h3><i class="fa-brands fa-aws"></i> AWS Implementation</h3>
+    <p><b>Amazon S3 Bucket.</b> A bucket named something like <code>certivault-user-storage</code> is created in an AWS region (e.g. ap-south-1). Each uploaded certificate becomes an "object" inside the bucket.</p>
+    <p><b>Folder structure.</b> Objects use key prefixes to simulate folders:</p>
+    <ul>
+      <li><code>certivault-user-storage/internship/</code></li>
+      <li><code>certivault-user-storage/academic/</code></li>
+      <li><code>certivault-user-storage/achievement/</code></li>
+    </ul>
+    <p><b>Bucket policy.</b> The bucket is kept <b>private</b> — public access is blocked at the bucket level. A bucket policy restricts actions to a specific IAM identity rather than "*" (everyone):</p>
+    <pre class="glass" style="padding:18px;overflow-x:auto;font-size:0.8rem;color:var(--text-muted);">{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": { "AWS": "arn:aws:iam::&lt;account-id&gt;:user/certivault-app-user" },
+      "Action": ["s3:PutObject", "s3:GetObject", "s3:DeleteObject"],
+      "Resource": "arn:aws:s3:::certivault-user-storage/*"
+    }
+  ]
+}</pre>
+    <p><b>Object upload/download.</b> The app requests a pre-signed URL from the backend, which lets the browser upload (PUT) or download (GET) directly to/from S3 for a short time window — without exposing AWS credentials to the browser.</p>
+    <p><b>Public vs private bucket.</b> A public bucket allows anyone with the URL to read objects — never appropriate for personal certificates. CertiVault's bucket stays private; only the app's IAM identity, using signed requests, can read or write objects.</p>
+  </div>
+
+  <div class="about-block">
+    <h3><i class="fa-solid fa-user-shield"></i> IAM User, Policy &amp; Least Privilege</h3>
+    <p><b>IAM User:</b> a dedicated identity (<code>certivault-app-user</code>) is created for the application — never the AWS root account.</p>
+    <p><b>IAM Policy:</b> a JSON document lists exactly which actions are allowed:</p>
+    <pre class="glass" style="padding:18px;overflow-x:auto;font-size:0.8rem;color:var(--text-muted);">{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": ["s3:PutObject", "s3:GetObject", "s3:DeleteObject", "s3:ListBucket"],
+      "Resource": [
+        "arn:aws:s3:::certivault-user-storage",
+        "arn:aws:s3:::certivault-user-storage/*"
+      ]
+    }
+  ]
+}</pre>
+    <p><b>Least Privilege Principle:</b> the policy grants only upload, download, delete, and list actions on this one bucket — nothing else in the AWS account. If these credentials were ever leaked, the damage is contained to this single bucket.</p>
+  </div>
+
+  <div class="about-block">
+    <h3><i class="fa-solid fa-diagram-project"></i> Architecture</h3>
+    <pre class="glass" style="padding:18px;overflow-x:auto;font-size:0.8rem;color:var(--text-muted);">
+flowchart LR
+    U[User Browser] -->|HTTPS| A[CertiVault Web App]
+    A -->|Signed Request| IAM[AWS IAM]
+    IAM -->|Authorizes| S3[(Amazon S3 Bucket)]
+    A -->|PUT / GET / DELETE Object| S3
+    S3 -->|Returns File / Confirmation| A
+    A -->|Renders UI| U
+    </pre>
+    <p>See the README and presentation for the fully rendered version of this diagram.</p>
+  </div>
+
+  <div class="about-block">
+    <h3><i class="fa-solid fa-road"></i> Future Scope</h3>
+    <ul>
+      <li>Replace simulated login with real AWS Cognito authentication.</li>
+      <li>Connect the upload/download flow to a live S3 bucket using pre-signed URLs.</li>
+      <li>Add AWS Lambda to auto-generate thumbnails for uploaded certificates.</li>
+      <li>Use Amazon CloudFront as a CDN for faster certificate previews.</li>
+      <li>Add email notifications via Amazon SES when a certificate is uploaded.</li>
+    </ul>
+    <div class="tag-row">
+      <span class="tag">AWS S3</span><span class="tag">AWS IAM</span><span class="tag">HTML5</span>
+      <span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">Cloud Computing</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-bottom">© 2026 CertiVault. Built as an IBM Cloud Computing Internship project.</div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

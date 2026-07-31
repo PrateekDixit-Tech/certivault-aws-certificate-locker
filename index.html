@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CertiVault — Secure Cloud Certificate Locker</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="bg-blobs"><span class="b1"></span><span class="b2"></span><span class="b3"></span></div>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="navbar">
+  <a href="index.html" class="brand">
+    <span class="brand-icon"><i class="fa-solid fa-shield-halved"></i></span>
+    CertiVault
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About Project</a></li>
+    <li><a href="index.html#features">Features</a></li>
+    <li><a href="index.html#why-aws">Why AWS</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a href="login.html" class="btn btn-ghost">Log In</a>
+    <a href="login.html" class="btn btn-primary"><i class="fa-solid fa-arrow-right-to-bracket"></i> Get Started</a>
+  </div>
+  <button class="nav-toggle"><i class="fa-solid fa-bars"></i></button>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="pill"><i class="fa-solid fa-lock"></i> Powered by Amazon S3 &amp; IAM</div>
+    <h1>Your certificates, <span>secured in the cloud.</span></h1>
+    <p>CertiVault is a modern cloud locker for every certificate you've ever earned — internships, degrees, and awards — uploaded, organized, and protected using real AWS cloud storage principles.</p>
+    <div class="hero-actions">
+      <a href="login.html" class="btn btn-primary"><i class="fa-solid fa-cloud-arrow-up"></i> Try the Demo</a>
+      <a href="about.html" class="btn btn-ghost"><i class="fa-solid fa-circle-info"></i> How It Works</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><b>99.99%</b><span>S3 durability (11 nines)</span></div>
+      <div class="stat"><b>256-bit</b><span>encryption at rest</span></div>
+      <div class="stat"><b>3</b><span>certificate categories</span></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-badge">Least Privilege ✓</div>
+    <div class="glass hero-card">
+      <div class="row">
+        <div class="icon-box"><i class="fa-solid fa-file-shield"></i></div>
+        <div><div class="file-name">AWS Cloud Practitioner.pdf</div><div class="file-meta">Achievement • 1.2 MB</div></div>
+      </div>
+      <div class="row">
+        <div class="icon-box"><i class="fa-solid fa-file-shield"></i></div>
+        <div><div class="file-name">IBM GenAI Internship.pdf</div><div class="file-meta">Internship • 0.8 MB</div></div>
+      </div>
+      <div class="row">
+        <div class="icon-box"><i class="fa-solid fa-file-shield"></i></div>
+        <div><div class="file-name">Semester 4 Marksheet.pdf</div><div class="file-meta">Academic • 0.6 MB</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURES ============ -->
+<section class="section" id="features">
+  <div class="section-head">
+    <div class="pill"><i class="fa-solid fa-star"></i> Features</div>
+    <h2>Everything a certificate locker needs</h2>
+    <p>Built for students and professionals who want one organized, secure place for every credential.</p>
+  </div>
+  <div class="grid">
+    <div class="glass card">
+      <div class="icon-tile brand"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+      <h3>Upload Certificates</h3>
+      <p>Drag, drop, and store certificates instantly with category tagging and descriptions.</p>
+    </div>
+    <div class="glass card">
+      <div class="icon-tile mint"><i class="fa-solid fa-magnifying-glass"></i></div>
+      <h3>Search &amp; Filter</h3>
+      <p>Find any certificate in seconds by name or category — Internship, Academic, or Achievement.</p>
+    </div>
+    <div class="glass card">
+      <div class="icon-tile warm"><i class="fa-solid fa-download"></i></div>
+      <h3>Download Anytime</h3>
+      <p>Access and download your original files whenever you need them, from any device.</p>
+    </div>
+    <div class="glass card">
+      <div class="icon-tile brand"><i class="fa-solid fa-folder-tree"></i></div>
+      <h3>Smart Categories</h3>
+      <p>Certificates are auto-organized into internship, academic, and achievement folders.</p>
+    </div>
+    <div class="glass card">
+      <div class="icon-tile mint"><i class="fa-solid fa-shield-halved"></i></div>
+      <h3>IAM-Backed Security</h3>
+      <p>Access is controlled through AWS Identity and Access Management using least-privilege rules.</p>
+    </div>
+    <div class="glass card">
+      <div class="icon-tile warm"><i class="fa-solid fa-trash-can"></i></div>
+      <h3>Delete Safely</h3>
+      <p>Remove certificates you no longer need, with a confirmation step to prevent mistakes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY AWS ============ -->
+<section class="section" id="why-aws">
+  <div class="split">
+    <div>
+      <div class="pill"><i class="fa-brands fa-aws"></i> Why AWS</div>
+      <h2 style="font-size:2.1rem;margin-bottom:20px;">Built on cloud infrastructure that scales</h2>
+      <p style="color:var(--text-muted);line-height:1.75;margin-bottom:26px;">Amazon S3 and IAM are used by real-world companies to store billions of files securely. CertiVault demonstrates these same principles at a beginner-friendly scale — the same ideas that power production systems.</p>
+      <ul class="check-list">
+        <li><i class="fa-solid fa-circle-check"></i><span><b>Durability:</b> S3 is designed for 99.999999999% durability, so files aren't lost.</span></li>
+        <li><i class="fa-solid fa-circle-check"></i><span><b>Access control:</b> IAM policies enforce who can read, write, or delete objects.</span></li>
+        <li><i class="fa-solid fa-circle-check"></i><span><b>Scalability:</b> Storage grows automatically — no server to manage.</span></li>
+        <li><i class="fa-solid fa-circle-check"></i><span><b>Cost-efficient:</b> You pay only for the storage you actually use.</span></li>
+      </ul>
+    </div>
+    <div class="glass" style="padding:34px;">
+      <table class="mini-table">
+        <tr><th>Concept</th><th>Role in CertiVault</th></tr>
+        <tr><td>S3 Bucket</td><td>Stores certificate files as objects</td></tr>
+        <tr><td>IAM User</td><td>Represents the app's identity to AWS</td></tr>
+        <tr><td>IAM Policy</td><td>Defines exactly which S3 actions are allowed</td></tr>
+        <tr><td>Private Bucket</td><td>Keeps certificates hidden from the public internet</td></tr>
+        <tr><td>Least Privilege</td><td>Grants only the permissions the app truly needs</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT (brief) ============ -->
+<section class="section" id="about">
+  <div class="section-head">
+    <div class="pill"><i class="fa-solid fa-lightbulb"></i> About</div>
+    <h2>A simple idea, built the right way</h2>
+    <p>Students collect dozens of certificates across internships, courses, and colleges — and lose track of most of them. CertiVault gives every certificate one secure, searchable home in the cloud.</p>
+  </div>
+  <div style="text-align:center;">
+    <a href="about.html" class="btn btn-primary">Read Full Project Details <i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="section">
+  <div class="section-head">
+    <div class="pill"><i class="fa-solid fa-comment"></i> Testimonials</div>
+    <h2>What people are saying</h2>
+    <p>Sample feedback for demonstration purposes.</p>
+  </div>
+  <div class="grid">
+    <div class="glass card testimonial">
+      <p class="quote">"I used to email myself PDFs of every certificate. CertiVault finally gives them one organized home."</p>
+      <div class="person"><div class="avatar">RS</div><div><b>Riya Sharma</b><span>Final-year student</span></div></div>
+    </div>
+    <div class="glass card testimonial">
+      <p class="quote">"The dashboard makes it easy to see exactly how many certificates I have in each category at a glance."</p>
+      <div class="person"><div class="avatar">AK</div><div><b>Arjun Kapoor</b><span>Internship candidate</span></div></div>
+    </div>
+    <div class="glass card testimonial">
+      <p class="quote">"A clean example of how S3 and IAM work together — helped me understand cloud storage basics."</p>
+      <div class="person"><div class="avatar">MP</div><div><b>Meera Patel</b><span>Cloud computing intern</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <a href="index.html" class="brand"><span class="brand-icon"><i class="fa-solid fa-shield-halved"></i></span>CertiVault</a>
+      <p style="margin-top:14px;">A secure cloud certificate locker built with AWS S3 and IAM, created as an IBM Cloud Computing internship project.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Product</h4>
+      <a href="index.html#features">Features</a>
+      <a href="index.html#why-aws">Why AWS</a>
+      <a href="login.html">Login</a>
+    </div>
+    <div class="footer-col">
+      <h4>Project</h4>
+      <a href="about.html">About Project</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="gallery.html">Gallery</a>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 CertiVault. Built as an IBM Cloud Computing Internship project. All rights reserved.</div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Log In — CertiVault</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="bg-blobs"><span class="b1"></span><span class="b2"></span><span class="b3"></span></div>
+
+<div class="auth-wrap">
+  <div class="glass auth-card">
+    <a href="index.html" class="brand"><span class="brand-icon"><i class="fa-solid fa-shield-halved"></i></span>CertiVault</a>
+    <h2>Welcome back</h2>
+    <p>Log in to access your certificate vault</p>
+
+    <form id="login-form">
+      <div class="field">
+        <label for="email">Email Address</label>
+        <div class="input-wrap">
+          <i class="fa-solid fa-envelope"></i>
+          <input type="email" id="email" placeholder="you@example.com" value="demo@certivault.com" required>
+        </div>
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <div class="input-wrap">
+          <i class="fa-solid fa-lock"></i>
+          <input type="password" id="password" placeholder="••••••••" value="demo1234" required>
+        </div>
+      </div>
+      <div class="field-row">
+        <label><input type="checkbox" checked> Remember me</label>
+        <a href="#">Forgot password?</a>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block"><i class="fa-solid fa-arrow-right-to-bracket"></i> Log In</button>
+    </form>
+
+    <div class="auth-divider">OR</div>
+    <div class="social-row">
+      <button class="btn btn-ghost"><i class="fa-brands fa-google"></i> Google</button>
+      <button class="btn btn-ghost"><i class="fa-brands fa-github"></i> GitHub</button>
+    </div>
+
+    <p class="auth-footer">New here? <a href="#">Create an account</a></p>
+
+    <div class="demo-note">
+      <i class="fa-solid fa-circle-info"></i> <b>Demo note:</b> Login is simulated for this project — any email/password logs you into the dashboard. Real deployments would use AWS Cognito or IAM-backed authentication.
+    </div>
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

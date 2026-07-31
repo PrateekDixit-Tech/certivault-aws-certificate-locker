@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Certificate Gallery — CertiVault</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="bg-blobs"><span class="b1"></span><span class="b2"></span><span class="b3"></span></div>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <a href="index.html" class="brand"><span class="brand-icon"><i class="fa-solid fa-shield-halved"></i></span>CertiVault</a>
+    <nav class="side-links">
+      <a href="dashboard.html"><i class="fa-solid fa-chart-line"></i> Dashboard</a>
+      <a href="upload.html"><i class="fa-solid fa-cloud-arrow-up"></i> Upload</a>
+      <a href="gallery.html" class="active"><i class="fa-solid fa-images"></i> Gallery</a>
+      <a href="profile.html"><i class="fa-solid fa-user"></i> Profile</a>
+      <a href="about.html"><i class="fa-solid fa-circle-info"></i> About Project</a>
+      <a href="index.html"><i class="fa-solid fa-right-from-bracket"></i> Log Out</a>
+    </nav>
+    <div class="sidebar-foot">
+      <div class="avatar">SK</div>
+      <div><div class="name">Shershah</div><div class="role">ECE Student</div></div>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <div class="topbar">
+      <div>
+        <h1>Certificate Gallery</h1>
+        <p>Browse, search, and manage every certificate in your vault.</p>
+      </div>
+      <div class="glass search-bar">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="gallery-search" placeholder="Search certificates...">
+      </div>
+    </div>
+
+    <div class="filter-row">
+      <button class="chip-filter active" data-category="All">All</button>
+      <button class="chip-filter" data-category="Internship">Internship</button>
+      <button class="chip-filter" data-category="Academic">Academic</button>
+      <button class="chip-filter" data-category="Achievement">Achievement</button>
+    </div>
+
+    <div class="cert-grid" id="cert-grid"></div>
+  </main>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
