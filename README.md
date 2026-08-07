@@ -124,5 +124,5 @@ This project is licensed under the MIT License.
 
 ## 👤 Author
 
-**Shershah** — B.Tech ECE Student
+**Prateek Dixit** — B.Tech ECE Student
 Built as part of the IBM Generative AI / Cloud Computing Internship program.
